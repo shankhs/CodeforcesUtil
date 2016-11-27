@@ -1,0 +1,13 @@
+[
+    {
+        "id" : "codeforces",
+        "caption" : "Codeforces",
+        "command" : "codeforces",
+        "children": [
+            {
+                "caption": "New Program",
+                "command": "codeforces_problem"
+            }
+        ]
+    }
+]
