@@ -36,7 +36,7 @@ def get_extension(settings):
 def createFile(dir_path, title, extension):
     if not os.path.exists(dir_path):
         os.makedirs(dir_path, mode=0o777)
-        os.chmod(dir_path, stat.S_IWRITE)
+        os.chmod(dir_path, 0o777)
     filename = os.path.join(dir_path, title + '.' + extension)
     try:
         open(filename, "a").close()
