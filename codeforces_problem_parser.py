@@ -1,18 +1,11 @@
 import sublime
 import sublime_plugin
 import urllib.request
-import sys
 import os
-import stat
 import re
-
-
-sys.path.append(os.path.join(os.path.dirname(__file__), "beautifulsoup"))
-
 
 # Keep track of the last opened program
 last_url = ''
-
 
 # Load the settings file, ideally this should be called once and only once
 def load_settings():
