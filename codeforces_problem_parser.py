@@ -8,6 +8,8 @@ import re
 last_url = ''
 
 # Load the settings file, ideally this should be called once and only once
+
+
 def load_settings():
     settings = sublime.load_settings('CodeforcesUtil.sublime-settings')
     return settings
@@ -74,15 +76,19 @@ def fetch(self, url):
     if file is None:
         return
 
-    snippets_file = settings.get('snippets', None)
+    snippets_file_name = settings.get('snippets', None)
     snippets_content = ''
-    if snippets_file is not None:
+    if snippets_file_name is not None:
+        snippets_file = open(snippets_file_name)
         try:
-            snippets_content = open(snippets_file).readlines()
+            snippets_content = snippets_file.readlines()
+            snippets_file.close()
         except Exception as e:
             sublime.error_message("File not found " + snippets_file)
             print (e)
+            snippets_file.close()
             return
+
     open(file, 'w').writelines(snippets_content)
     sublime.active_window().open_file(file)
 

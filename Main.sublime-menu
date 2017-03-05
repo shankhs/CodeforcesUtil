@@ -1,12 +1,20 @@
 [
     {
-        "id" : "codeforces",
-        "caption" : "Codeforces",
-        "command" : "codeforces",
-        "children": [
+        "caption": "Tools",
+        "mnemonic": "n",
+        "id": "tools",
+        "children":
+        [
             {
-                "caption": "New Program",
-                "command": "codeforces_problem"
+                "id" : "codeforces",
+                "caption" : "Codeforces",
+                "command" : "codeforces",
+                "children": [
+                    {
+                        "caption": "New Program",
+                        "command": "codeforces_problem"
+                    }
+                ]
             }
         ]
     }
