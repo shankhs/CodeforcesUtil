@@ -18,7 +18,7 @@ def load_settings():
 # The main folder where the folder of the current program should be created
 def get_parent_dir(settings, title):
     parent_dir = settings.get('parent_dir', '.')
-    return os.path.join(parent_dir, title)
+    return os.path.join(parent_dir)
 
 
 # Get the extensions of the file
@@ -32,7 +32,7 @@ def createFile(dir_path, title, extension):
     if not os.path.exists(dir_path):
         os.makedirs(dir_path, mode=0o777)
         os.chmod(dir_path, 0o777)
-    filename = os.path.join(dir_path, title + '.' + extension)
+    filename = os.path.join(dir_path, title + "_" +  str(re.findall(r'\d+',last_url)[0])  + str(re.findall(r'[A-Z]',last_url)[0]) + '.' + extension)
     try:
         open(filename, "a").close()
         return filename
@@ -73,6 +73,7 @@ def fetch(self, url):
     dir_path = get_parent_dir(settings, title)
     extension = get_extension(settings)
     file = createFile(dir_path, title, extension)
+
     if file is None:
         return
 
